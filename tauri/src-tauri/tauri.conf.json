@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "chat-with-geogebra",
+  "version": "0.2.0",
+  "identifier": "cafe.ivory.dev",
+  "build": {
+    "devUrl": "http://localhost:3000",
+    "frontendDist": "../frontendDist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Chat with GeoGebra",
+        "width": 1200,
+        "height": 800,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self' https://www.geogebra.org https://cdn.geogebra.org; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.geogebra.org https://cdn.geogebra.org; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.geogebra.org; img-src 'self' data: blob: https: http:; font-src 'self' data: https://cdn.jsdelivr.net; connect-src 'self' https: http: ws: wss:; frame-src 'self' https://www.geogebra.org;",
+      "dangerousDisableAssetCspModification": [
+        "script-src"
+      ]
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "msi",
+    "resources": [
+      "../standalone/**/*"
+    ],
+    "externalBin": [
+      "bin/nodejs"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}
