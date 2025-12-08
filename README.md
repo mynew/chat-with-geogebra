@@ -4,12 +4,14 @@
 
 目前比较闲，会日常更新一下
 
+⚠️ 目前该项目已经转变为桌面端项目，使用tauri作为桌面端框架，next作为全栈框架，分离为另一个名为[chat-with-geogebra-next](https://github.com/tiwe0/chat-with-geogebra-next)的项目，后端为node(以sidecar的形式嵌入tauri)。
+
 ## TODO List
 
 - [ ] 基于geogebra command lint的语法检测(working)
 - [ ] 自我修正的mcp
 - [ ] 上传应用题照片自动绘图
-- [x] 客户端 (初步完成，后续再更新)
+- [x] 桌面客户端 (初步框架完成，后续再更新)
 
 使用自然语言交流，辅助绘制 GeoGebra 图像的轻量工具。
 
@@ -32,6 +34,8 @@
 然而，当迷雾散尽，少年终于明白：女神不过是凡人，她的光芒只存在于幻想之中。  
 带着微笑与遗憾，作者收剑入鞘，将这份力量留给了所有需要它的人。🌌
 
+(省流版：被拒了)
+
 ## ✨ 功能特色
 
 - 🧠 自然语言生成 GeoGebra 命令
@@ -49,11 +53,11 @@
 
 ![预览图](./docs/preview.jpg)  
 
-## 🚀 Release
+## 🚀 应用
 
-从 ![Release](https://github.com/tiwe0/chat-with-geogebra/release/) 页下载
+请从 [Release](https://github.com/tiwe0/chat-with-geogebra/releases/) 页下载最新的版本
 
-## 编译
+## 💻 编译
 
 ```bash
 # 克隆仓库
