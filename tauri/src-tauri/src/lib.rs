@@ -57,10 +57,6 @@ pub fn run() {
                     .join("_up_")
                     .to_path_buf();
                 println!("Current directory for sidecar: {:?}", current_dir);
-                append_text_to_file(
-                    "D:\\Users\\Administrator\\AppData\\Local\\chat-with-geogebra\\log.txt",
-                    &format!("Current directory: {:?}\n", current_dir)
-                ).expect("Failed to append to log file");
                 let (mut rx, child) = app_handle
                     .shell()
                     .sidecar("nodejs")
@@ -71,10 +67,6 @@ pub fn run() {
                     .expect("Failed to spawn sidecar");
 
                 println!("Node.js sidecar started with PID: {}", child.pid());
-                append_text_to_file(
-                    "D:\\Users\\Administrator\\AppData\\Local\\chat-with-geogebra\\log.txt",
-                    &format!("Node.js sidecar started with PID: {}\n", child.pid())
-                ).expect("Failed to append to log file");
 
                 {
                     let mut guard = next_progress_clone.lock().unwrap();
@@ -85,17 +77,9 @@ pub fn run() {
                     match event {
                         tauri_plugin_shell::process::CommandEvent::Stdout(line) => {
                             println!("Node.js stdout: {}", String::from_utf8_lossy(&line));
-                append_text_to_file(
-                    "D:\\Users\\Administrator\\AppData\\Local\\chat-with-geogebra\\log.txt",
-                    &format!("Node.js stdout: {}\n", String::from_utf8_lossy(&line))
-                ).expect("Failed to append to log file");
                         }
                         tauri_plugin_shell::process::CommandEvent::Stderr(line) => {
                             eprintln!("Node.js stderr: {}", String::from_utf8_lossy(&line));
-                append_text_to_file(
-                    "D:\\Users\\Administrator\\AppData\\Local\\chat-with-geogebra\\log.txt",
-                    &format!("Node.js stderr: {}\n", String::from_utf8_lossy(&line))
-                ).expect("Failed to append to log file");
                         }
                         tauri_plugin_shell::process::CommandEvent::Terminated(code) => {
                             println!("Node.js sidecar exited with code: {:?}", code);
