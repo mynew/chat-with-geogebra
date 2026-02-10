@@ -55,13 +55,14 @@ pub fn run() {
                     .parent()
                     .expect("Failed to get grandparent directory of resource path")
                     .join("_up_")
+                    .join("standalone")
                     .to_path_buf();
                 println!("Current directory for sidecar: {:?}", current_dir);
                 let (mut rx, child) = app_handle
                     .shell()
                     .sidecar("nodejs")
                     .unwrap()
-                    .args(["standalone/server.js"])
+                    .args(["server.js"])
                     .current_dir(current_dir)
                     .spawn()
                     .expect("Failed to spawn sidecar");
